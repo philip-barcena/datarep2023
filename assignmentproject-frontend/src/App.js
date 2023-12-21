@@ -8,12 +8,12 @@ import Navbar from './components/navbar';
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-      <Navbar />
+      <BrowserRouter> {/* Initializes the router */}
+      <Navbar /> {/* Displays the Navbar component */}
         <div className='pages'>
           <Routes>
             <Route
-              path='/'
+              path='/' // Defines the route path
               element={ <Home />}
             />
           </Routes>

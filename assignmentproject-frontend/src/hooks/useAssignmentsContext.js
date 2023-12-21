@@ -2,7 +2,7 @@ import { AssignmentsContext } from "../context/AssignmentsContext";
 import { useContext } from "react";
 
 export const useAssignmentsContext = () => {
-    // this object with the state and dispatch function
+    // Accessing the context object containing state and dispatch function using useContext
     const context = useContext(AssignmentsContext)
 
     if (!context) {

@@ -2,15 +2,17 @@ import { useAssignmentsContext } from "../hooks/useAssignmentsContext"
 
 
 const AssignmentDetails = ({ assignment }) => {
+    // Accessing the assignments context and dispatch function
     const { dispatch } = useAssignmentsContext()
     const handleClick = async () => {
-        const response = await fetch('/api/assignments/' + assignment._id,{
+        // Sending a DELETE request to delete the assignment by ID
+        const response = await fetch('/api/assignments/' + assignment._id, {
             method: 'DELETE'
         })
         const json = await response.json()
 
         if (response.ok) {
-            dispatch({type: 'DELETE_ASSIGNMENTS', payload: json})
+            dispatch({ type: 'DELETE_ASSIGNMENTS', payload: json })
         }
     }
 

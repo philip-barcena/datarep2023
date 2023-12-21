@@ -16,7 +16,7 @@ const AssignmentForm = () => {
         const assignment = { title, dueDate, whichModule }
 
         if (assignmentId) {
-            // Updating an existing assignment
+            // Updating an existing assignment via PATCH request
             const response = await fetch(`/api/assignments/${assignmentId}`, {
                 method: 'PATCH',
                 body: JSON.stringify(assignment),
@@ -34,6 +34,7 @@ const AssignmentForm = () => {
                 setdueDate('');
                 setModule('');
                 setError(null);
+                // Dispatching action to update the assignment in context
                 dispatch({ type: 'UPDATE_ASSIGNMENT', payload: json });
             }
         } else {
@@ -55,7 +56,8 @@ const AssignmentForm = () => {
                 setdueDate('');
                 setModule('');
                 setError(null);
-                dispatch({ type: 'CREATE_ASSIGNMENT', payload: json });
+                // Dispatching action to create the assignment in context
+                dispatch({ type: 'CREATE_ASSIGNMENTS', payload: json });
             }
         }
     };
